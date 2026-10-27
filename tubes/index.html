@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumpulan Tampilan Web (Tubes Pweb)</title>
+    <!-- Menggunakan Google Fonts & FontAwesome untuk ikon -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        /* --- 1. NAVBAR ALIAS HEADER (Gaya CrazyGames) --- */
+        .navbar {
+            background-color: #1e1b2e;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            border-bottom: 1px solid #2d2b42;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-left i, .nav-right i {
+            font-size: 20px;
+            cursor: pointer;
+            color: #cbd5e1;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            color: #fff;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            background-color: #2d2b42;
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-radius: 999px;
+            margin: 0 20px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        .search-bar input::placeholder {
+            color: #94a3b8;
+        }
+
+        .btn-login {
+            background-color: #ccff00;
+            color: #000;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .notification-badge {
+            position: relative;
+        }
+
+        .notification-badge::after {
+            content: '1';
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background-color: #ef4444;
+            color: white;
+            font-size: 10px;
+            padding: 2px 5px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        /* --- 2. SECTION FILM / STREAMING UNGGULAN --- */
+        .streaming-section {
+            padding: 24px;
+            background-color: #0b0f19;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #f8fafc;
+        }
+
+        .movie-grid {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+        }
+
+        .movie-grid::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .movie-grid::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 3px;
+        }
+
+        .movie-card {
+            min-width: 130px;
+            background: #1e293b;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .movie-info {
+            padding: 8px;
+        }
+
+        .movie-title {
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .movie-year {
+            font-size: 10px;
+            color: #94a3b8;
+        }
+
+        .badge-rating {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background: rgba(0, 0, 0, 0.75);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            color: #fbbf24;
+            font-weight: bold;
+        }
+
+        /* --- 3. BANNER PENGUMUMAN --- */
+        .announcement-banner {
+            background-color: #dcfce7;
+            color: #166534;
+            padding: 12px 24px;
+            font-size: 13px;
+            border-left: 4px solid #22c55e;
+            margin: 20px 24px;
+            border-radius: 4px;
+        }
+
+        .announcement-banner a {
+            color: #2563eb;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* --- 4. FOOTER (Gaya Tokopedia) --- */
+        .tokopedia-footer {
+            background-color: #ffffff;
+            color: #333333;
+            padding: 40px 24px 20px 24px;
+            font-size: 13px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: #64748b;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #00aa5b;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 20px auto 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        .lang-toggle {
+            background: #f1f5f9;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #0f172a;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. HEADER / NAVBAR -->
+    <header class="navbar">
+        <div class="nav-left">
+            <i class="fa-solid fa-bars"></i>
+            <div class="logo-container">
+                <i class="fa-solid fa-ghost"></i> CRAZY GAMES
+            </div>
+        </div>
+        <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass" style="color: #94a3b8;"></i>
+            <input type="text" placeholder="Search games and categories">
+        </div>
+        <div class="nav-right">
+            <i class="fa-solid fa-users"></i>
+            <i class="fa-solid fa-bookmark"></i>
+            <i class="fa-solid fa-bell notification-badge"></i>
+            <button class="btn-login">Log In</button>
+        </div>
+    </header>
+
+    <!-- 2. BANNER PENGUMUMAN -->
+    <div class="announcement-banner">
+        <strong>PENTING !</strong> Catat dan Bookmark alamat URL Lk21 <a href="#">https://Lk21.de</a>. Gabung bersama group telegram Lk21 di <a href="#">Lk21Telegram</a>. Video cara install VPN Gratis <a href="#">Youtube</a>. Lk21 on <a href="#">Instagram</a>
+    </div>
+
+    <!-- 3. BAGIAN DAFTAR FILM -->
+    <section class="streaming-section">
+        <div class="section-title">Film Unggulan Terbaru</div>
+        <div class="movie-grid">
+            <!-- Kartu Film 1 -->
+            <div class="movie-card">
+                <div class="badge-rating">★ 9.5</div>
+                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=300&q=80" alt="Poster Film">
+                <div class="movie-info">
+                    <div class="movie-title">Doctor X: Age of...</div>
+                    <div class="movie-year">2026</div>
+                </div>
+            </div>
+            <!-- Kartu Film 2 -->
+            <div class="movie-card">
+                <div class="badge-rating">★ 8.0</div>
+                <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=300&q=80" alt="Poster Film">
+                <div class="movie-info">
+                    <div class="movie-title">Spider-Man: Brand...</div>
+                    <div class="movie-year">2026</div>
+                </div>
+            </div>
+            <!-- Kartu Film 3 -->
+            <div class="movie-card">
+                <div class="badge-rating">★ 8.1</div>
+                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=300&q=80" alt="Poster Film">
+                <div class="movie-info">
+                    <div class="movie-title">The Mentalist</div>
+                    <div class="movie-year">2008</div>
+                </div>
+            </div>
+            <!-- Kartu Film 4 -->
+            <div class="movie-card">
+                <div class="badge-rating">★ 9.2</div>
+                <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=300&q=80" alt="Poster Film">
+                <div class="movie-info">
+                    <div class="movie-title">Take Charge of My Heart</div>
+                    <div class="movie-year">2026</div>
+                </div>
+            </div>
+            <!-- Kartu Film 5 -->
+            <div class="movie-card">
+                <div class="badge-rating">★ 9.0</div>
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=300&q=80" alt="Poster Film">
+                <div class="movie-info">
+                    <div class="movie-title">Masterplan</div>
+                    <div class="movie-year">2026</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FOOTER TOKOPEDIA STYLE -->
+    <footer class="tokopedia-footer">
+        <div class="footer-columns">
+            <div class="footer-col">
+                <h4>Tokopedia</h4>
+                <ul>
+                    <li><a href="#">Tentang Tokopedia</a></li>
+                    <li><a href="#">Hak Kekayaan Intelektual</a></li>
+                    <li><a href="#">Karir</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Tokopedia Affiliate Program</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Beli</h4>
+                <ul>
+                    <li><a href="#">Tagihan & Top Up</a></li>
+                    <li><a href="#">Tokopedia COD</a></li>
+                    <li><a href="#">Bebas Ongkir</a></li>
+                </ul>
+                <h4 style="margin-top: 20px;">Jual</h4>
+                <ul>
+                    <li><a href="#">Pusat Edukasi Seller</a></li>
+                    <li><a href="#">Daftar Mall</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Bantuan dan Panduan</h4>
+                <ul>
+                    <li><a href="#">Tokopedia Care</a></li>
+                    <li><a href="#">Syarat dan Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Ikuti Kami</h4>
+                <div style="display: flex; gap: 10px; font-size: 18px; margin-top: 10px;">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div>&copy; 2009 - 2026, PT. Tokopedia. All Rights Reserved.</div>
+            <div class="lang-toggle">Indonesia | English</div>
+        </div>
+    </footer>
+
+</body>
+</html>
